@@ -1,7 +1,13 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-import { Button, TextField, FormControl, withStyles } from "@material-ui/core";
+import {
+  Button,
+  TextField,
+  FormControl,
+  withStyles,
+  FormLabel
+} from "@material-ui/core";
 import DoneIcon from "@material-ui/icons/Done";
 
 import { connect } from "react-redux";
@@ -11,6 +17,9 @@ import FinalUnfilledCheck from "../finalUnfilledCheck/finalUnfilledCheck";
 let styles = {
   formControl: {
     width: "30em"
+  },
+  question: {
+    fontSize: "1.4em"
   }
 };
 
@@ -35,46 +44,50 @@ class PageFour extends Component {
       let feedback = this.props.feedBackState;
       this.checkEmpty(feedback)
         .then(res => {
-            this.props.dispatch({
-                type : 'CLEAR_INPUT'
-            });
+          this.props.dispatch({
+            type: "CLEAR_INPUT"
+          });
 
-            axios
+          axios
             .post("/api/feedback", feedback)
             .then(res => {
               this.props.history.push("/5");
             })
             .catch(err => console.log(err));
-        }).catch(err => console.log('something was empty'))
+        })
+        .catch(err => console.log("something was empty"));
     });
   };
 
-  checkEmpty = (feedback)=> {
+  checkEmpty = feedback => {
     let flag = false;
     Object.keys(feedback).forEach(key => {
-        if (feedback[key] === "" && key !== "comments") {
-            flag = true;
-          this.setState({
-            dialogOpen: true,
-            unfilledField: key.toString()
-          });
-        }
-      });
-      if(!flag){
-        return Promise.resolve();
-      }else{
-        return Promise.reject();
+      if (feedback[key] === "" && key !== "comments") {
+        flag = true;
+        this.setState({
+          dialogOpen: true,
+          unfilledField: key.toString()
+        });
       }
-      
-  }
+    });
+    if (!flag) {
+      return Promise.resolve();
+    } else {
+      return Promise.reject();
+    }
+  };
 
   handleRedirect = key => {
-      this.setState({
-          dialogOpen : false
-      })
-      if (key === 'feeling') {this.props.history.push('/1');}
-      else if (key === 'understanding') {this.props.history.push('/2')}
-      else if (key === 'support') {this.props.history.push('/3')}
+    this.setState({
+      dialogOpen: false
+    });
+    if (key === "feeling") {
+      this.props.history.push("/1");
+    } else if (key === "understanding") {
+      this.props.history.push("/2");
+    } else if (key === "support") {
+      this.props.history.push("/3");
+    }
   };
 
   updateRedux = () => {
@@ -89,8 +102,11 @@ class PageFour extends Component {
     return (
       <div>
         <FormControl className={this.props.classes.formControl}>
+          <FormLabel className={this.props.classes.question}>
+            Any comments you want to leave?
+          </FormLabel>
           <TextField
-            label="Any comments you want to leave?"
+            label="Comment"
             multiline
             rows="5"
             margin="normal"

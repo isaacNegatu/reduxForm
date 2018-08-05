@@ -21,6 +21,9 @@ let styles = {
   },
   radios: {
     display: "inline-block"
+  },
+  question : {
+      fontSize : '1.4em'
   }
 };
 
@@ -63,7 +66,7 @@ class PageThree extends Component {
     return (
       <div>
         <FormControl className={this.props.classes.formControl}>
-          <FormLabel component="legend">How well are you supported?</FormLabel>
+          <FormLabel component="legend" className={this.props.classes.question}>How well are you supported?</FormLabel>
           <RadioGroup
             name="support"
             value={this.state.support}

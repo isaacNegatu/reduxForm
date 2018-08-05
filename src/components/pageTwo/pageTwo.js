@@ -21,6 +21,9 @@ let styles = {
   },
   radios: {
     display: "inline-block"
+  },
+  question : {
+      fontSize : '1.4em'
   }
 };
 
@@ -64,7 +67,7 @@ class PageTwo extends Component {
     return (
       <div>
         <FormControl className={this.props.classes.formControl}>
-          <FormLabel component="legend">
+          <FormLabel component="legend" className={this.props.classes.question}>
             How well are you understanding the concept?
           </FormLabel>
           <RadioGroup

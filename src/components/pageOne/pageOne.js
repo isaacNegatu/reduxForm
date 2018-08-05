@@ -21,6 +21,9 @@ let styles = {
   },
   radios: {
     display: "inline-block"
+  },
+  question : {
+      fontSize : '1.4em'
   }
 };
 
@@ -64,7 +67,7 @@ class PageOne extends Component {
     return (
       <div>
         <FormControl className={this.props.classes.formControl}>
-          <FormLabel component="legend">How are you feeling today?</FormLabel>
+          <FormLabel component="legend" className={this.props.classes.question}>How are you feeling today?</FormLabel>
           <RadioGroup
             name="feeling"
             value={this.state.feeling}

@@ -14,6 +14,8 @@ import PageThree from "../pageThree/pageThree";
 import PageFour from "../pageFour/pageFour";
 import PageFive from "../pageFive/pageFive";
 
+import Admin from '../admin/admin';
+
 import NotFound from '../notFound/notFound';
 
 class App extends Component {
@@ -35,6 +37,9 @@ class App extends Component {
             <Route exact path='/3' component={PageThree} />
             <Route exact path='/4' component={PageFour} />
             <Route exact path='/5' component={PageFive} />
+
+             <Route exact path='/admin' component={Admin} />
+
             <Route component={NotFound} />
           </Switch>
         </div>
