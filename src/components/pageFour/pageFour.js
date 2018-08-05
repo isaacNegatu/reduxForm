@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 
 import { Button, TextField, FormControl, withStyles } from "@material-ui/core";
-import NavigateNextIcon from "@material-ui/icons/NavigateNext";
+import DoneIcon from "@material-ui/icons/Done";
 
 import { connect } from "react-redux";
 
@@ -103,7 +103,7 @@ class PageFour extends Component {
             variant="outlined"
             color="primary"
           >
-            Submit <NavigateNextIcon />
+            Submit <DoneIcon />
           </Button>
         </FormControl>
 

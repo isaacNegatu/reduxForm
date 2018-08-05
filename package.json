@@ -7,7 +7,7 @@
     "@material-ui/core": "^1.4.3",
     "@material-ui/icons": "^2.0.1",
     "axios": "^0.17.1",
-    "pg": "^7.4.1",
+    "pg": "^7.4.3",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-redux": "^5.0.7",
@@ -17,7 +17,7 @@
     "redux-logger": "^3.0.6"
   },
   "devDependencies": {
-    "nodemon": "^1.14.11"
+    "nodemon": "^1.18.3"
   },
   "scripts": {
     "start": "node server/server.js",
