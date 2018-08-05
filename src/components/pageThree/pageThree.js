@@ -29,7 +29,7 @@ class PageThree extends Component {
     super(props);
     this.state = {
       support: this.props.feedBackState.support,
-      dialogOpen : false
+      dialogOpen: false
     };
   }
 
@@ -102,8 +102,8 @@ class PageThree extends Component {
 }
 
 const mapStateToFeedback = reduxState => {
-    return { feedBackState: reduxState };
-  };
+  return { feedBackState: reduxState };
+};
 
 const styledPage = withStyles(styles)(PageThree);
 export default connect(mapStateToFeedback)(styledPage);

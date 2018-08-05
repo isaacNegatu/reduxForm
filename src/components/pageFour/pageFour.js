@@ -28,7 +28,6 @@ class PageFour extends Component {
     this.setState({
       comments: e.target.value
     });
-    console.log(this);
   };
 
   handleSubmit = () => {
@@ -36,11 +35,13 @@ class PageFour extends Component {
       let feedback = this.props.feedBackState;
       this.checkEmpty(feedback)
         .then(res => {
-            console.log('got here aywa');
+            this.props.dispatch({
+                type : 'CLEAR_INPUT'
+            });
+
             axios
             .post("/api/feedback", feedback)
             .then(res => {
-              console.log(res);
               this.props.history.push("/5");
             })
             .catch(err => console.log(err));
@@ -57,9 +58,7 @@ class PageFour extends Component {
             dialogOpen: true,
             unfilledField: key.toString()
           });
-          
         }
-        console.log(key, feedback[key]);
       });
       if(!flag){
         return Promise.resolve();
