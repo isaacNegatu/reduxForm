@@ -27,7 +27,7 @@ class PageFour extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      comments: "",
+      comments: this.props.feedBackState.comments,
       dialogOpen: false,
       unfilledField: ""
     };
@@ -106,6 +106,7 @@ class PageFour extends Component {
             Any comments you want to leave?
           </FormLabel>
           <TextField
+            value={this.state.comments}
             label="Comment"
             multiline
             rows="5"

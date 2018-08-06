@@ -37,7 +37,6 @@ class Admin extends Component {
     axios
       .get("/api/feedback")
       .then(res => {
-        console.log(res.data);
         this.setState({
           feedbacks: res.data
         });
@@ -48,7 +47,6 @@ class Admin extends Component {
   };
 
   deleteFeedback = feedback => {
-    console.log(feedback);
     axios
       .delete(`/api/feedback/${feedback.id}`)
       .then(() => this.componentDidMount())
@@ -63,6 +61,7 @@ class Admin extends Component {
   }
 
   render() {
+    
     let tableRows = this.state.feedbacks.map(feedback => {
 
         let flagIcon;

@@ -14,6 +14,8 @@ import PageThree from "../pageThree/pageThree";
 import PageFour from "../pageFour/pageFour";
 import PageFive from "../pageFive/pageFive";
 
+import FormProgress from '../progress/progress.js';
+
 import Admin from '../admin/admin';
 
 import NotFound from '../notFound/notFound';
@@ -30,6 +32,7 @@ class App extends Component {
             </h4>
           </header>
           <br />
+          <FormProgress />
           <Switch>
             <Redirect exact from="/" to="/1" />
             <Route exact path="/1" component={PageOne} />
